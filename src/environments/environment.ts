@@ -2,8 +2,12 @@
 // `ng build --prod` replaces `environment.ts` with `environment.prod.ts`.
 // The list of file replacements can be found in `angular.json`.
 
-export const environment = {
-  production: false
+import { Environment } from "./types";
+
+export const environment:Environment = {
+  production: false,
+  apiKey: 'WOScmRIP2e8GNFlcVo0GsF5YSuu28cGt',
+  ticketMasterUrl: 'https://app.ticketmaster.com/discovery/v2'
 };
 
 /*
