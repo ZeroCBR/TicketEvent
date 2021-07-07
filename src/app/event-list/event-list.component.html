@@ -1,0 +1,15 @@
+<div>
+  <h1>Event List</h1>
+  <div>
+    Search
+  </div>
+  <div id="event-list" class="d-flex flex-wrap">
+    <div *ngFor="let event of events" class="card shadow">
+      <img class="card-img-top" src="{{event.images[0]?.url}}">
+      <div class="card-body">
+        <h5 class="card-title">{{event.name}}</h5>
+        <a routerLink="event/{{event.id}}" class="btn btn-primary">Detail</a>
+      </div>
+    </div>
+  </div>
+</div>
