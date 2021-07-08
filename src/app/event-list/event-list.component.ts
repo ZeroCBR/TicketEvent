@@ -12,12 +12,14 @@ export class EventListComponent {
   events: TicketEvent[];
 
   constructor(private eventService:EventService) {
-    this.eventService.getEventList().subscribe(data=>{
-      this.events = data._embedded.events;
-    })
+    this.createEventListSub()
   }
 
   search(searchParam: SearchParam){
+    this.createEventListSub(searchParam)
+  }
+
+  createEventListSub(searchParam: SearchParam = null){
     this.eventService.getEventList(searchParam).subscribe(data=>{
       this.events = data._embedded.events;
     })
