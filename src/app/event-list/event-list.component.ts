@@ -21,7 +21,7 @@ export class EventListComponent {
 
   createEventListSub(searchParam: SearchParam = null){
     this.eventService.getEventList(searchParam).subscribe(data=>{
-      this.events = data._embedded.events;
+      this.events = data._embedded?.events;
     })
   }
 }
