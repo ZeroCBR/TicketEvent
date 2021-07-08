@@ -1,9 +1,9 @@
 import {Injectable} from '@angular/core'
-import {Observable, throwError} from 'rxjs'
-import {HttpClient, HttpErrorResponse, HttpParams} from '@angular/common/http'
+import {Observable} from 'rxjs'
+import {HttpClient, HttpParams} from '@angular/common/http'
 import {catchError} from 'rxjs/operators'
-import {Router} from '@angular/router'
 import { ConfigService } from './config.service'
+import { SearchParam } from '../models/search.model'
 
 @Injectable()
 export class EventService {
@@ -13,9 +13,9 @@ export class EventService {
         private http: HttpClient
   ) { }
 
-  getEventList(requestParam:any): Observable<any> {
+  getEventList(searchParam:SearchParam=null): Observable<any> {
     const url = `${this.config.ticketMasterUrl}/events`
-    const params = this.buildRequestParams()
+    const params = this.buildRequestParams(searchParam)
 
     return this.http.get(url, {params}).pipe(
       catchError(err => {
@@ -34,21 +34,21 @@ export class EventService {
     )
   }
 
-  private buildRequestParams(requestParam: any = null): HttpParams {
+  private buildRequestParams(searchParam: SearchParam = null): HttpParams {
     let params = new HttpParams()
 
-    if (requestParam) {
-      if (requestParam.page)
-        params = params.append('page', requestParam.page)
+    if (searchParam) {
+      if (searchParam.id)
+        params = params.append('id', searchParam.id)
 
-      if (requestParam.searchTerm)
-        params = params.append('searchterm', requestParam.searchTerm)
+      if (searchParam.keyword)
+        params = params.append('keyword', searchParam.keyword)
 
-      if (requestParam.pageSize)
-        params = params.append('pagesize', requestParam.pageSize)
+      if (searchParam.size)
+        params = params.append('size', searchParam.size)
 
-      if (requestParam.filterFleetStatus)
-        params = params.append('filterfleetstatus', requestParam.filterFleetStatus)
+      if (searchParam.page)
+        params = params.append('page', searchParam.page)
     }
 
     return params

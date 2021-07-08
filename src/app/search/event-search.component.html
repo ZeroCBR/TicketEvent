@@ -1,0 +1,26 @@
+<div class="m-3">
+  <form [formGroup]="searchForm" (ngSubmit)="onSubmit()">
+    <div class="row">
+      <div class="form-group col-md-3">
+        <label for="id-input">id</label>
+        <input id="id-input" class="form-control" formControlName="id">
+      </div>
+      <div class="form-group col-md-3">
+        <label for="keyword-input">keyword</label>
+        <input id="keyword-input" class="form-control" formControlName="keyword">
+      </div>
+      <div class="form-group col-md-3">
+        <label for="size-input">size</label>
+        <input id="size-input" class="form-control" formControlName="size">
+      </div>
+      <div class="form-group col-md-3">
+        <label for="page-input">page</label>
+        <input id="page-input" class="form-control" formControlName="page">
+      </div>
+    </div>
+    <div class="mt-2">
+      <button id="search-btn" type="submit" class="btn btn-primary">Search</button>
+      <button id="clear-btn" type="reset" class="btn btn-secondary mx-2">Clear</button>
+    </div>
+  </form>
+</div>

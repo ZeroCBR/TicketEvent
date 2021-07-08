@@ -1,5 +1,6 @@
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { NgModule } from '@angular/core';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { BrowserModule } from '@angular/platform-browser';
 
 import { AppRoutingModule } from './app-routing.module';
@@ -9,17 +10,21 @@ import { ConfigService } from './core/services/config.service';
 import { EventService } from './core/services/event.service';
 import { EventDetailComponent } from './event-detail/event-detail.component';
 import { EventListComponent } from './event-list/event-list.component';
+import { EventSearchComponent } from './search/event-search.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     EventDetailComponent,
-    EventListComponent
+    EventListComponent,
+    EventSearchComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    HttpClientModule
+    HttpClientModule,
+    FormsModule,
+    ReactiveFormsModule
   ],
   providers: [
     EventService,

@@ -1,5 +1,6 @@
 import {Component} from '@angular/core'
 import { TicketEvent } from '../core/models/event.model';
+import { SearchParam } from '../core/models/search.model';
 import { EventService } from '../core/services/event.service';
 
 @Component({
@@ -11,7 +12,13 @@ export class EventListComponent {
   events: TicketEvent[];
 
   constructor(private eventService:EventService) {
-    this.eventService.getEventList(null).subscribe(data=>{
+    this.eventService.getEventList().subscribe(data=>{
+      this.events = data._embedded.events;
+    })
+  }
+
+  search(searchParam: SearchParam){
+    this.eventService.getEventList(searchParam).subscribe(data=>{
       this.events = data._embedded.events;
     })
   }
