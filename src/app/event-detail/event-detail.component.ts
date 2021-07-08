@@ -1,8 +1,8 @@
-import {Component, OnDestroy, OnInit} from '@angular/core'
-import { ActivatedRoute } from '@angular/router'
+import {Component, OnDestroy, OnInit} from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
 import { Subscription } from 'rxjs';
 import { TicketEvent } from '../core/models/event.model';
-import { EventService } from '../core/services/event.service'
+import { EventService } from '../core/services/event.service';
 
 @Component({
   selector: 'event-detail',
@@ -11,19 +11,19 @@ import { EventService } from '../core/services/event.service'
 })
 export class EventDetailComponent implements OnInit, OnDestroy {
   private routeSub: Subscription;
-  event: TicketEvent; 
+  event: TicketEvent;
 
-  constructor(private eventService:EventService, private route: ActivatedRoute) {}
+  constructor(private eventService: EventService, private route: ActivatedRoute) {}
 
-  ngOnInit() {
+  ngOnInit(): void {
     this.routeSub = this.route.params.subscribe(params => {
-      this.eventService.getEventById(params['id']).subscribe(data=>{
-        this.event = data
-      })
+      this.eventService.getEventById(params.id).subscribe(data => {
+        this.event = data;
+      });
     });
   }
 
-  ngOnDestroy(){
+  ngOnDestroy(): void{
     this.routeSub.unsubscribe();
   }
 }

@@ -1,4 +1,4 @@
-import {Component, EventEmitter, Output} from '@angular/core'
+import {Component, EventEmitter, Output} from '@angular/core';
 import { FormControl, FormGroup } from '@angular/forms';
 
 @Component({
@@ -16,10 +16,10 @@ export class EventSearchComponent {
       keyword: new FormControl(''),
       size: new FormControl(''),
       page: new FormControl('')
-    }) 
+    });
   }
 
   onSubmit(): void {
-    this.searchEmitter.emit(this.searchForm.value)
+    this.searchEmitter.emit(this.searchForm.value);
   }
 }

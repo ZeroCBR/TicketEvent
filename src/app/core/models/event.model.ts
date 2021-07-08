@@ -1,7 +1,7 @@
 export interface EvenListResponse{
-  page:Page;
-  _embedded:Embedded;
-  _links:Object;
+  page: Page;
+  _embedded: Embedded;
+  _links: object;
 }
 
 export interface Page {

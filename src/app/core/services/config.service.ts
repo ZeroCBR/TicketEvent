@@ -1,20 +1,20 @@
-import {Injectable} from '@angular/core'
+import {Injectable} from '@angular/core';
 import { Environment } from '../../../environments/types';
-import {environment} from '../../../environments/environment'
+import {environment} from '../../../environments/environment';
 
 @Injectable()
 export class ConfigService {
   private config: Environment;
 
   constructor() {
-    this.config = environment
+    this.config = environment;
   }
 
-  get apiKey(){
-    return this.config.apiKey
+  get apiKey(): string{
+    return this.config.apiKey;
   }
 
-  get ticketMasterUrl(){
-    return this.config.ticketMasterUrl
+  get ticketMasterUrl(): string{
+    return this.config.ticketMasterUrl;
   }
 }

@@ -4,8 +4,8 @@ import { EventDetailComponent } from './event-detail/event-detail.component';
 import { EventListComponent } from './event-list/event-list.component';
 
 const routes: Routes = [
-  {path:'', component: EventListComponent},
-  {path:'event/:id', component: EventDetailComponent}
+  {path: '', component: EventListComponent},
+  {path: 'event/:id', component: EventDetailComponent}
 ];
 
 @NgModule({
